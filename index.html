@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stopwatch</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <main class="wrapper">
+
+    <header class="app-header">
+      <div class="header-dot"></div>
+      <h1 class="app-title">CHRONO</h1>
+      <div class="header-dot"></div>
+    </header>
+
+    <!-- Stopwatch Card -->
+    <section class="stopwatch-card" aria-label="Stopwatch">
+
+      <!-- Status indicator -->
+      <div class="status-bar">
+        <span class="status-indicator" id="statusIndicator"></span>
+        <span class="status-label" id="statusLabel">READY</span>
+      </div>
+
+      <!-- Main timer display -->
+      <div class="timer-display" id="timerDisplay" aria-live="polite" aria-atomic="true">
+        <span class="time-segment" id="hours">00</span>
+        <span class="time-sep">:</span>
+        <span class="time-segment" id="minutes">00</span>
+        <span class="time-sep">:</span>
+        <span class="time-segment" id="seconds">00</span>
+        <span class="time-ms-sep">.</span>
+        <span class="time-segment time-ms" id="milliseconds">00</span>
+      </div>
+
+      <!-- Lap count badge -->
+      <div class="lap-badge" id="lapBadge" aria-live="polite">
+        <span id="lapCount">0</span> LAPS
+      </div>
+
+      <!-- Control buttons -->
+      <div class="controls" role="group" aria-label="Stopwatch controls">
+        <button class="btn btn-start"  id="startBtn"  onclick="startStopwatch()" title="Start">
+          <span class="btn-icon">▶</span>
+          <span class="btn-label">START</span>
+        </button>
+        <button class="btn btn-pause"  id="pauseBtn"  onclick="pauseStopwatch()" disabled title="Pause">
+          <span class="btn-icon">⏸</span>
+          <span class="btn-label">PAUSE</span>
+        </button>
+        <button class="btn btn-lap"    id="lapBtn"    onclick="recordLap()"      disabled title="Lap">
+          <span class="btn-icon">⊕</span>
+          <span class="btn-label">LAP</span>
+        </button>
+        <button class="btn btn-reset"  id="resetBtn"  onclick="resetStopwatch()" title="Reset">
+          <span class="btn-icon">↺</span>
+          <span class="btn-label">RESET</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Lap Records Section -->
+    <section class="laps-section" id="lapsSection" aria-label="Lap records">
+      <div class="laps-header">
+        <h2 class="laps-title">LAP RECORDS</h2>
+        <button class="clear-btn" id="clearBtn" onclick="clearLaps()" style="display:none">CLEAR</button>
+      </div>
+      <div class="laps-list-wrapper">
+        <ol class="laps-list" id="lapsList" reversed aria-label="Recorded lap times"></ol>
+        <div class="laps-empty" id="lapsEmpty">
+          <span class="empty-icon">⏱</span>
+          <p>No laps recorded yet.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
