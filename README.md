@@ -110,8 +110,6 @@ python -m http.server 8080
 
 ---
 
-## 👤 Author
-
 Built as an internship project submission demonstrating:
 
 - Clean, well-commented Vanilla JS
@@ -122,3 +120,6 @@ Built as an internship project submission demonstrating:
 ---
 
 *CHRONO — because every millisecond counts.*
+
+deploymet:
+https://sct-wd-2-n6qf.onrender.com
